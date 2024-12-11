@@ -1,8 +1,15 @@
 import { useContext } from "react";
 import { BikeContext } from "../context/bike.context";
+import { Link } from "react-router-dom";
 
 export default function Bikelist() {
-  const {bikes, loading } = useContext(BikeContext);
+  const bikeContext = useContext(BikeContext);
+
+  if (!bikeContext) {
+    throw new Error("BikeContext is not provided. Please wrap your components in BikeProvider.");
+  }
+
+  const { bikes, loading } = bikeContext;
 
   if (loading) {
     return <p>Loading bikes...</p>
@@ -20,10 +27,18 @@ export default function Bikelist() {
             <h2>{bike.title}</h2>
             <p>{bike.description}</p>
             <img src={bike.image} alt={`Image of ${bike.title}`} />
-            <p>{bike.tags}</p>
+            <ul>
+            {bike.tags && bike.tags.length > 0 ? (
+              bike.tags.map((tag, index) => (
+                <li key={index}>{tag}</li>
+              ))
+            ) : (
+              <li>No tags available</li>
+            )}
+          </ul>
             <p>{bike.price}</p>
             <button>See Full Details</button>
-            <button>Reserve Now</button>
+            <Link to={`/createBooking/${bike.id}`}>Reserve Now</Link>
           </div>
         );
       })}

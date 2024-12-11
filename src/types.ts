@@ -21,3 +21,23 @@ export type BikeContextType = {
     updateBike: (updatedBike: BikeType) => Promise<void>; 
     deleteBike: (bikeId: Promise<any>) => Promise<void>;
 }
+
+export type BookingType = {
+    id: string;
+    startDate: string;
+    endDate: string;
+    totalPrice: number;
+    bikeId: string;
+}
+
+export type BookingContextType = {
+    booking: BookingType | null,
+    setBooking: (booking: BookingType | null) => void,
+    bookings: BookingType[],
+    loading: boolean, 
+    getBookings: () => Promise<void>; 
+    getBookingById: (bookingId: Promise<any>) => Promise<BookingType | undefined>; 
+    createBooking: (bookingData: Promise<any>) => Promise<void>; 
+    updateBooking: (updatedBooking: BookingType) => Promise<void>; 
+    deleteBooking: (bookingId: Promise<any>) => Promise<void>;
+}

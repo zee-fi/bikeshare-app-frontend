@@ -13,7 +13,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
     const getBikes = async () => {
         setLoading(true);
             try {
-                const response = await axios.get('/api/bikes');
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bikes`);
                 setBikes(response.data);
             } catch (err) {
                 console.log("error fetching bikes", err);
@@ -29,7 +29,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
 
     const getBikeById = async (bikeId: Promise<any>)  => {
         try {
-            const response = await axios.get(`/api/bikes/${bikeId}`)
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bikes/${bikeId}`)
             return response.data;
         } catch (err) {
             console.log("error fetching bike", err);
@@ -39,7 +39,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
 
     const createBike = async (bikeData: Promise<any>) => {
         try {
-            const response = await axios.post('/api/bikes', bikeData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bikes`, bikeData);
             setBikes((prevBikes) => [response.data, ...prevBikes]);
         } catch (err) {
             console.log("error creating bike", err);
@@ -51,7 +51,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
         try {
             const { id: bikeId } = updatedBike;
 
-            const response = await axios.put<BikeType>(`/api/bikes/${bikeId}`, updatedBike)
+            const response = await axios.put<BikeType>(`${import.meta.env.VITE_API_URL}/api/bikes/${bikeId}`, updatedBike)
             setBikes((prevBikes) => 
                 prevBikes ? prevBikes.map((bike) => 
                   bike.id === bikeId ? response.data : bike
@@ -65,7 +65,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
     const deleteBike = async (bikeIdPromise: Promise<any>) => {
         try {
             const bikeId = await bikeIdPromise;
-            await axios.delete(`/api/bikes/${bikeId}`)
+            await axios.delete(`${import.meta.env.VITE_API_URL}/api/bikes/${bikeId}`)
             setBikes((prevBikes) => prevBikes ? prevBikes.filter((bike: BikeType) => bike.id !== bikeId) : []);
         } catch (err) {
             console.log("error deleting bike", err)
