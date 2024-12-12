@@ -1,0 +1,37 @@
+/* Styling for the whole navigation */
+.nav {
+    list-style-type: none;
+    margin: 0;
+    display: inline;
+  }
+  
+  /* Style for each list item in the nav */
+  .nav li {
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    padding-bottom: 30px;
+  }
+  
+  /* Styling for the NavLink (non-active state) */
+  .nav a {
+    text-decoration: none;  /* Remove underline */
+    color: #f6f8f8ae;            /* Default text color */
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Hover effect for NavLinks */
+  .nav a:hover {
+    color: #007BFF; /* Blue color on hover */
+    background-color: #f0f0f0; /* Light background on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+  }
+  
+  /* Active state for NavLinks */
+  .nav .active {
+    color: #fff; /* White text color when active */
+    background-color: #2a6cb3; /* Blue background when active */
+    border-radius: 5px;
+  }
