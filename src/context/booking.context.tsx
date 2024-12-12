@@ -1,12 +1,11 @@
 import axios from "axios";
-import React, {useState, useEffect, createContext } from "react";
+import React, {useState, createContext } from "react";
 import { BookingContextType, BookingType } from "../types";
 
 const BookingContext = createContext<BookingContextType | undefined>(undefined);
 
 const BookingProvider = ({ children }: { children: React.ReactNode }) => {
     const [bookings, setBookings] = useState<BookingType[]>([]);
-    const [loading, setLoading] = useState(true);
     const [booking, setBooking] = useState<BookingType | null>(null);
 
 
@@ -58,7 +57,7 @@ const BookingProvider = ({ children }: { children: React.ReactNode }) => {
 
 
     return (
-        <BookingContext.Provider value={{booking, setBooking, bookings, loading, createBooking, updateBooking, getBookingById, deleteBooking}}>{children}</BookingContext.Provider>
+        <BookingContext.Provider value={{booking, setBooking, bookings, createBooking, updateBooking, getBookingById, deleteBooking}}>{children}</BookingContext.Provider>
     )
 };
 

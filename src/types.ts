@@ -35,7 +35,6 @@ export type BookingContextType = {
     booking: BookingType | null,
     setBooking: (booking: BookingType | null) => void,
     bookings: BookingType[],
-    loading: boolean, 
     getBookingById: (bookingId: string) => Promise<BookingType | undefined>; 
     createBooking: (bookingData: BookingType) => Promise<void>; 
     updateBooking: (updatedBooking: BookingType) => Promise<void>; 
