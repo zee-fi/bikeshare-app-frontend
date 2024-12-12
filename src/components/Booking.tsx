@@ -23,7 +23,7 @@ export default function Booking (){
           }
 
           try {
-            const bookingData = await getBookingById(Promise.resolve(bookingId)); 
+            const bookingData = await getBookingById(bookingId); 
             setBooking(bookingData || null); 
           } catch (err) {
             console.error("Error fetching booking details", err);

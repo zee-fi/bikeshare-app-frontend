@@ -9,25 +9,9 @@ const BookingProvider = ({ children }: { children: React.ReactNode }) => {
     const [loading, setLoading] = useState(true);
     const [booking, setBooking] = useState<BookingType | null>(null);
 
-    
-    const getBookings = async () => {
-        setLoading(true);
-            try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bookings`);
-                setBookings(response.data);
-            } catch (err) {
-                console.log("error fetching bookings", err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-    useEffect(() => {
-        getBookings();
-      }, []);
 
 
-    const getBookingById = async (bookingId: Promise<any>)  => {
+    const getBookingById = async (bookingId: string)  => {
         try {
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bookings/${bookingId}`)
             return response.data;
@@ -37,9 +21,9 @@ const BookingProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
 
-    const createBooking = async (bookingData: Promise<any>) => {
+    const createBooking = async (bookingData: BookingType) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings`, bookingData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings/`, bookingData);
             setBookings((prevBookings) => [response.data, ...prevBookings]);
         } catch (err) {
             console.log("error creating booking", err);
@@ -74,7 +58,7 @@ const BookingProvider = ({ children }: { children: React.ReactNode }) => {
 
 
     return (
-        <BookingContext.Provider value={{booking, setBooking, bookings, loading, getBookings, createBooking, updateBooking, getBookingById, deleteBooking}}>{children}</BookingContext.Provider>
+        <BookingContext.Provider value={{booking, setBooking, bookings, loading, createBooking, updateBooking, getBookingById, deleteBooking}}>{children}</BookingContext.Provider>
     )
 };
 

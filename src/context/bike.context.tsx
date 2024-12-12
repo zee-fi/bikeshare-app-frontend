@@ -27,7 +27,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
       }, []);
 
 
-    const getBikeById = async (bikeId: Promise<any>)  => {
+    const getBikeById = async (bikeId: string)  => {
         try {
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bikes/${bikeId}`)
             return response.data;
@@ -39,7 +39,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
 
     const createBike = async (bikeData: Promise<any>) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bikes`, bikeData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bikes/`, bikeData);
             setBikes((prevBikes) => [response.data, ...prevBikes]);
         } catch (err) {
             console.log("error creating bike", err);

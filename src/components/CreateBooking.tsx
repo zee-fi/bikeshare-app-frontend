@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { BookingContext } from "../context/booking.context";
 import { BikeContext } from "../context/bike.context";
+import { BookingType } from "../types";
 
 export default function BookingForm() {
   const { bikeId } = useParams<{ bikeId: string }>();
@@ -20,7 +21,7 @@ export default function BookingForm() {
     );
   }
 
-  const { bikes, getBikeById } = bikeContext;
+  const { getBikeById } = bikeContext;
 
   useEffect(() => {
     if (bikeId) {
@@ -63,7 +64,9 @@ export default function BookingForm() {
       return;
     }
 
-    const bookingData = {
+    const bookingData: BookingType = {
+      id: "",
+      bookingId: "",
       startDate,
       endDate,
       totalPrice: parseFloat(totalPrice),
@@ -71,9 +74,7 @@ export default function BookingForm() {
     };
 
     try {
-      console.log("Booking data:", bookingData);
-
-      await bookingContext?.createBooking(Promise.resolve(bookingData));
+      await bookingContext?.createBooking(bookingData);
 
       navigate("/bookings");
     } catch (err) {

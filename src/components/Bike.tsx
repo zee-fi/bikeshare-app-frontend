@@ -23,7 +23,7 @@ export default function Bike (){
           }
 
           try {
-            const bikeData = await getBikeById(Promise.resolve(bikeId)); 
+            const bikeData = await getBikeById(bikeId); 
             setBike(bikeData || null); 
           } catch (err) {
             console.error("Error fetching bike details", err);
