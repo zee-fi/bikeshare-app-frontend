@@ -1,15 +1,17 @@
 .footer {
-    background-color: #2a6cb3;   /* Dark background color for the footer */
-    color: #f6f8f8ae;            /* Light text color */
-    padding: 20px 0;             /* Spacing for the footer */
-    text-align: center;          /* Center the links */
-    width: 100%;                 /* Make sure it spans the entire width */
-    margin-top: auto;            /* Ensures it stays at the bottom of the page */
+    background-color: #2a6cb3;   
+    color: #f6f8f8ae;          
+    padding: 20px 0;            
+    text-align: center;        
+    width: 100%;                 
+    margin-top: auto;  
+    position: relative;
+    bottom: 0;        
   }
   
   .footer a {
-    color: #f6f8f8ae; /* Matching color for links in footer */
-    text-decoration: none; /* Remove default underline from links */
+    color: #f6f8f8ae; 
+    text-decoration: none; 
   }
   
   .footer li {
@@ -20,9 +22,9 @@
   }
   
   .footer a:hover {
-    color: #007BFF;        /* Blue color on hover in footer */
-    background-color: #f0f0f0; /* Light background on hover */
+    color: #007BFF;        
+    background-color: #f0f0f0; 
     border-radius: 5px;
-    padding: 2px 5px;  /* Add slight padding for better hover effect */
+    padding: 2px 5px;  
   }
   

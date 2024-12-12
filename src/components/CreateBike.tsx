@@ -131,61 +131,61 @@ export default function CreateBike() {
         />
         <fieldset>
           <label>Select relevant tags* </label>
-          <div><label>City Bike</label>
+          <div>
             <input
               type="checkbox"
               value="City Bike"
               checked={tags.includes("City Bike")}
               onChange={handleTagChange}
-            /><label>E-Bike</label>
+            /><label>City Bike</label>
             <input
               type="checkbox"
               value="E Bike"
               checked={tags.includes("E Bike")}
               onChange={handleTagChange}
-            /><label>Road Bike</label>
+            /><label>E-Bike</label>
             <input
               type="checkbox"
               value="Road Bike"
               checked={tags.includes("Road Bike")}
               onChange={handleTagChange}
-            /><label>Touring Bike</label>
+            /><label>Road Bike</label>
             <input
               type="checkbox"
               value="Touring Bike"
               checked={tags.includes("Touring Bike")}
               onChange={handleTagChange}
-            /><label>Mountain Bike</label>
+            /><label>Touring Bike</label>
             <input
               type="checkbox"
               value="Mountain Bike"
               checked={tags.includes("Mountain Bike")}
               onChange={handleTagChange}
-            /><label>Men's</label>
+            /><label>Mountain Bike</label>
             <input
               type="checkbox"
               value="Mens"
               checked={tags.includes("Mens")}
               onChange={handleTagChange}
-            /><label>Women's</label>
+            /><label>Men's</label>
             <input
               type="checkbox"
               value="Womens"
               checked={tags.includes("Womens")}
               onChange={handleTagChange}
-            /><label>Unisex</label>
+            /><label>Women's</label>
             <input
               type="checkbox"
               value="Unisex"
               checked={tags.includes("Unisex")}
               onChange={handleTagChange}
-            /><label>Kids</label>
+            /><label>Unisex</label>
             <input
               type="checkbox"
               value="Kids"
               checked={tags.includes("Kids")}
               onChange={handleTagChange}
-            />
+            /><label>Kids</label>
           </div>
         </fieldset>
         <label>Price* </label>

@@ -7,7 +7,7 @@ export default function Homepage () {
         <>
         <div className="main-content">
         <div className="main-div">
-        <img src="../public/bike.png" className="hp-img" alt="bike drawing"/>
+        <img src="/bike.png" className="hp-img" alt="bike drawing"/>
         <h1>Bikesharing in Berlin</h1>
         <div>
             <h2>Discover and share bikes in Berlin with ease. Our platform lets you find available bikes for rent around the city, or list your own bike to earn extra income. Whether you're looking to explore Berlin on two wheels or share your ride with others, our community-driven bikeshare service makes it simple and convenient.</h2>

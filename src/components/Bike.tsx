@@ -2,6 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BikeContext } from "../context/bike.context";
 import { BikeType } from "../types";
+import { Link } from "react-router-dom";
+import "../index.css";
+import "../css/bikelist.css";
+
 
 export default function Bike (){
     const {bikeId} = useParams();
@@ -44,7 +48,7 @@ export default function Bike (){
       }
 
     return(
-        <div className="bike-details">
+        <div className="bike-card">
             <h2>{bike.title}</h2>
             <img src={bike.image} alt={`Image of ${bike.title}`} />
             <p>{bike.description}</p>
@@ -55,15 +59,15 @@ export default function Bike (){
         ))}
       </div>
       <p>
-        <strong>Price per day:</strong> ${bike.price}
+        <strong>Price per day:</strong> €{bike.price}
       </p>
       <p>
-        <strong>Deposit:</strong> ${bike.deposit}
+        <strong>Deposit:</strong> €{bike.deposit}
       </p>
       <p>
         <strong>Contact Owner:</strong>
       </p>
-      <button>Reserve Now</button>
+      <button className="reserve-button"><Link to={`/bookings/${bikeId}`}>Reserve Now</Link></button>
     </div>
     )
 }

@@ -9,7 +9,6 @@ const BookingProvider = ({ children }: { children: React.ReactNode }) => {
     const [booking, setBooking] = useState<BookingType | null>(null);
 
 
-
     const getBookingById = async (bookingId: string)  => {
         try {
             const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bookings/${bookingId}`)
@@ -22,7 +21,7 @@ const BookingProvider = ({ children }: { children: React.ReactNode }) => {
 
     const createBooking = async (bookingData: BookingType) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings/:bikeId`, bookingData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings`, bookingData);
             setBookings((prevBookings) => [response.data, ...prevBookings]);
         } catch (err) {
             console.log("error creating booking", err);

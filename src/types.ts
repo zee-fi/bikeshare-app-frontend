@@ -20,6 +20,8 @@ export type BikeContextType = {
     createBike: (bikeData: BikeType) => Promise<void>; 
     updateBike: (updatedBike: BikeType) => Promise<void>; 
     deleteBike: (bikeId: Promise<any>) => Promise<void>;
+    selectedBike: BikeType | null;
+    setSelectedBike: React.Dispatch<React.SetStateAction<BikeType | null>>;
 }
 
 export type BookingType = {

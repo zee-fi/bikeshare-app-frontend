@@ -14,6 +14,7 @@ export default function BookingForm() {
   const bikeContext = useContext(BikeContext);
   const bookingContext = useContext(BookingContext);
   const navigate = useNavigate();
+  
 
   if (!bikeContext) {
     throw new Error(

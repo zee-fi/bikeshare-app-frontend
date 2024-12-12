@@ -8,7 +8,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
     const [bikes, setBikes] = useState<BikeType[]>([]);
     const [loading, setLoading] = useState(true);
     const [bike, setBike] = useState<BikeType | null>(null);
-
+    const [selectedBike, setSelectedBike] = useState<BikeType | null>(null);
     
     const getBikes = async () => {
         setLoading(true);
@@ -76,7 +76,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
 
 
     return (
-        <BikeContext.Provider value={{bike, setBike, bikes, loading, getBikes, createBike, updateBike, getBikeById, deleteBike}}>{children}</BikeContext.Provider>
+        <BikeContext.Provider value={{bike, setBike, bikes, loading, getBikes, createBike, updateBike, getBikeById, deleteBike, selectedBike, setSelectedBike}}>{children}</BikeContext.Provider>
     )
 };
 
