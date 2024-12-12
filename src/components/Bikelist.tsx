@@ -38,7 +38,7 @@ export default function Bikelist() {
           </ul>
             <p>{bike.price}</p>
             <button>See Full Details</button>
-            <button><Link to={`/booking/${bike.id}`}>Reserve Now</Link></button>
+            <button><Link to={`/bookings/${bike.id}`}>Reserve Now</Link></button>
           </div>
         );
       })}
