@@ -21,7 +21,7 @@ function App() {
         <Route path="/bikes/:bikeId" element={<Bike />} />
         <Route path="/bookings/:bookingId" element={<Booking />} />
         <Route path="/addBike" element={<CreateBike />} />
-        <Route path="/createBooking/:bikeId" element={<CreateBooking />} />
+        <Route path="/booking/:bikeId" element={<CreateBooking />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

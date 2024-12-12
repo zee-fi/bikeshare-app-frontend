@@ -1,17 +1,17 @@
 .footer {
-    background-color: #2a6cb3;    /* Dark background color for the footer */
-    color: #f6f8f8ae;           /* Light text color */
-    padding: 20px 0;            /* Spacing for the footer */
-    text-align: center;         /* Center the links */
-    position: relative;         /* Footer at the bottom of the page */
-    bottom: 0;
-    width: 100%;
+    background-color: #2a6cb3;   /* Dark background color for the footer */
+    color: #f6f8f8ae;            /* Light text color */
+    padding: 20px 0;             /* Spacing for the footer */
+    text-align: center;          /* Center the links */
+    width: 100%;                 /* Make sure it spans the entire width */
+    margin-top: auto;            /* Ensures it stays at the bottom of the page */
   }
   
   .footer a {
     color: #f6f8f8ae; /* Matching color for links in footer */
+    text-decoration: none; /* Remove default underline from links */
   }
-
+  
   .footer li {
     list-style-type: none;
     display: inline-block;
@@ -23,5 +23,6 @@
     color: #007BFF;        /* Blue color on hover in footer */
     background-color: #f0f0f0; /* Light background on hover */
     border-radius: 5px;
+    padding: 2px 5px;  /* Add slight padding for better hover effect */
   }
   

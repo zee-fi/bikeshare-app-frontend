@@ -44,7 +44,6 @@ export default function BookingForm() {
       const end = new Date(endDate);
 
       if (start > end) {
-        // Handle the case where endDate is before startDate
         alert("End date cannot be before the start date.");
         return;
       }
@@ -65,8 +64,8 @@ export default function BookingForm() {
     }
 
     const bookingData: BookingType = {
-      id: "",
-      bookingId: "",
+        id: "",
+        bookingId: "",
       startDate,
       endDate,
       totalPrice: parseFloat(totalPrice),
@@ -76,7 +75,7 @@ export default function BookingForm() {
     try {
       await bookingContext?.createBooking(bookingData);
 
-      navigate("/bookings");
+      navigate("/bikes");
     } catch (err) {
       console.error("Error creating booking:", err);
     }

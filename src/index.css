@@ -26,10 +26,11 @@ html, body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .main-content {
-  height: 70vh;
+  height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
