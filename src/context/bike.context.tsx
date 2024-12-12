@@ -37,7 +37,9 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
 
-    const createBike = async (bikeData: Promise<any>) => {
+    const createBike = async (bikeData: BikeType): Promise<void> => {
+        console.log("Payload sent to server:", bikeData);
+
         try {
             const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bikes/`, bikeData);
             setBikes((prevBikes) => [response.data, ...prevBikes]);

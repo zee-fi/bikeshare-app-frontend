@@ -1,6 +1,6 @@
 
 export type BikeType = {
-    id: string;
+    id?: string;
     title: string;
     description: string;
     tags: string[];
@@ -17,13 +17,13 @@ export type BikeContextType = {
     loading: boolean, 
     getBikes: () => Promise<void>; 
     getBikeById: (bikeId: string) => Promise<BikeType | undefined>; 
-    createBike: (bikeData: Promise<any>) => Promise<void>; 
+    createBike: (bikeData: BikeType) => Promise<void>; 
     updateBike: (updatedBike: BikeType) => Promise<void>; 
     deleteBike: (bikeId: Promise<any>) => Promise<void>;
 }
 
 export type BookingType = {
-    id: string;
+    id?: string;
     startDate: string;
     endDate: string;
     totalPrice: number;
