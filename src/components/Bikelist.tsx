@@ -51,9 +51,11 @@ export default function Bikelist() {
                 </Link>
               </button>
               <button className="reserve-button">
+                <Link to="updateBike">
                 <strong>Are you the owner?</strong>
                 <br />
                 <small>Click here to edit bike details</small>
+                </Link>
               </button>
             </div>
           );
