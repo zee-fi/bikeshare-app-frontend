@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { BookingContext } from "../context/booking.context";
 import { BikeContext } from "../context/bike.context";
 import { BookingType } from "../types";
+import "../css/form.css"
 
 export default function BookingForm() {
   const { bikeId } = useParams<{ bikeId: string }>();

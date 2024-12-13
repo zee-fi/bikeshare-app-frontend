@@ -14,7 +14,7 @@ export default function Bike (){
       throw new Error("BikeContext is not provided. Please wrap your components in BikeProvider.");
     }
 
-    const { getBikeById } = bikeContext;
+    const { getBikeById, deleteBike } = bikeContext;
     const [bike, setBike] = useState<BikeType | null>(null);
     const [loading, setLoading] = useState(true);
 
@@ -38,6 +38,23 @@ export default function Bike (){
     
         fetchBike();
       }, [bikeId, getBikeById]); 
+
+      const handleDelete = async () => {
+        if (!bikeId) {
+            console.error("Bike ID is missing, cannot delete the bike.");
+            return;
+        }
+        const confirmation = window.confirm("Are you sure you want to delete this bike?");
+        if (confirmation) {
+            try {
+                await deleteBike(Promise.resolve(bikeId));
+                alert("Bike deleted successfully!");
+            } catch (err) {
+                console.error("Error deleting bike:", err);
+            }
+        }
+    };
+
     
       if (loading) {
         return <p>Loading bike details...</p>;
@@ -68,6 +85,7 @@ export default function Bike (){
         <strong>Contact Owner:</strong>
       </p>
       <button className="reserve-button"><Link to={`/bookings/${bikeId}`}>Reserve Now</Link></button>
+      <button className="reserve-button" onClick={handleDelete}>Delete</button>
     </div>
     )
 }

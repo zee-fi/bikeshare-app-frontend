@@ -7,7 +7,6 @@ import Bike from "./components/Bike";
 import CreateBike from "./components/CreateBike";
 import Header from "./components/Header";
 import CreateBooking from "./components/CreateBooking";
-import Booking from "./components/Booking";
 import About from "./pages/About";
 
 function App() {
@@ -19,9 +18,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/bikes" element={<Bikelist />} />
         <Route path="/bikes/:bikeId" element={<Bike />} />
-        <Route path="/bookings/:bookingId" element={<Booking />} />
         <Route path="/addBike" element={<CreateBike />} />
-        <Route path="/bookings" element={<CreateBooking />} />
+        <Route path="/bookings/:bikeId" element={<CreateBooking />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />

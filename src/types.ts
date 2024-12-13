@@ -12,6 +12,8 @@ export type BikeType = {
 
 export type BikeContextType = {
     bike: BikeType | null,
+    bikeId: string;
+    setBikeId: React.Dispatch<React.SetStateAction<string>>;
     setBike: (bike: BikeType | null) => void,
     bikes: BikeType[],
     loading: boolean, 
@@ -29,7 +31,7 @@ export type BookingType = {
     startDate: string;
     endDate: string;
     totalPrice: number;
-    bookingId: string;
+    bookingId?: string;
     bikeId: string;
 }
 

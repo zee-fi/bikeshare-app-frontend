@@ -21,12 +21,21 @@ const BookingProvider = ({ children }: { children: React.ReactNode }) => {
 
     const createBooking = async (bookingData: BookingType) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings`, bookingData);
+            const { bikeId } = bookingData;
+            const apiUrl = `${import.meta.env.VITE_API_URL}/api/bookings/${bikeId}`;
+            console.log("Creating booking at:", apiUrl);
+            const response = await axios.post(apiUrl, bookingData);
+            console.log("Booking created successfully:", response.data);
             setBookings((prevBookings) => [response.data, ...prevBookings]);
         } catch (err) {
-            console.log("error creating booking", err);
+            if (axios.isAxiosError(err)) {
+                console.error("Error creating booking:", err.response?.data);
+            } else {
+                console.error("Unknown error creating booking:", err);
+            }
         }
     };
+    
 
 
     const updateBooking = async (updatedBooking: BookingType) => {

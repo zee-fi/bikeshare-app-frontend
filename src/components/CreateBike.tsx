@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { BikeContext } from "../context/bike.context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../css/form.css";
 
 export default function CreateBike() {
   const [title, setTitle] = useState("");
