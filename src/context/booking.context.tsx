@@ -21,20 +21,32 @@ const BookingProvider = ({ children }: { children: React.ReactNode }) => {
 
     const createBooking = async (bookingData: BookingType) => {
         try {
-            const { bikeId } = bookingData;
-            const apiUrl = `${import.meta.env.VITE_API_URL}/api/bookings/${bikeId}`;
-            console.log("Creating booking at:", apiUrl);
-            const response = await axios.post(apiUrl, bookingData);
-            console.log("Booking created successfully:", response.data);
-            setBookings((prevBookings) => [response.data, ...prevBookings]);
+          const { bikeId, startDate, endDate, totalPrice } = bookingData;
+      
+          const formattedStartDate = new Date(startDate).toISOString();
+          const formattedEndDate = new Date(endDate).toISOString();
+      
+          const apiUrl = `${import.meta.env.VITE_API_URL}/api/bookings/${bikeId}`;
+          console.log("Creating booking at:", apiUrl);
+      
+          const response = await axios.post(apiUrl, {
+            bikeId,
+            startDate: formattedStartDate,
+            endDate: formattedEndDate,
+            totalPrice,
+          });
+      
+          console.log("Booking created successfully:", response.data);
+          setBookings((prevBookings) => [response.data, ...prevBookings]);
         } catch (err) {
-            if (axios.isAxiosError(err)) {
-                console.error("Error creating booking:", err.response?.data);
-            } else {
-                console.error("Unknown error creating booking:", err);
-            }
+          if (axios.isAxiosError(err)) {
+            console.error("Error creating booking:", err.response?.data);
+          } else {
+            console.error("Unknown error creating booking:", err);
+          }
         }
-    };
+      };      
+    
     
 
 
