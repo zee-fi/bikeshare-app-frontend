@@ -84,6 +84,8 @@ export default function BookingForm() {
   };
 
   return (
+    <div className="main-content">
+    <div className="main-div">
     <form onSubmit={handleSubmit}>
       <label htmlFor="startDate">Start Date*:</label>
       <input
@@ -112,5 +114,7 @@ export default function BookingForm() {
 
       <button type="submit">Create Booking</button>
     </form>
+    </div>
+    </div>
   );
 }

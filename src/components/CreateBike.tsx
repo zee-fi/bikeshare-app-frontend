@@ -117,6 +117,8 @@ export default function CreateBike() {
 
   return (
     <>
+    <div className="main-content">
+    <div className="main-div">
       <form onSubmit={handleSubmit}>
         <label>Title* </label>
         <input
@@ -213,6 +215,8 @@ export default function CreateBike() {
           Submit
         </button>
       </form>
+      </div>
+      </div>
     </>
   );
 }

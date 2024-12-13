@@ -31,6 +31,8 @@ html, body {
 
 .main-content {
   flex: 1;
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
@@ -106,6 +108,15 @@ button:focus-visible {
 .hp-button:active {
   background-color: #4448d0; /* Darken the color on click */
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15); /* Smaller shadow on click */
+}
+
+#bikeId {
+  width: 185px; 
+  text-align: center; 
+  font-size: small;
+  margin: 0 auto;
+  display: block; 
+  padding: .5em;
 }
 
 @media (prefers-color-scheme: light) {
