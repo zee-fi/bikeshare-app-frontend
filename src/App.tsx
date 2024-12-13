@@ -20,7 +20,7 @@ function App() {
         <Route path="/bikes" element={<Bikelist />} />
         <Route path="/bikes/:bikeId" element={<Bike />} />
         <Route path="/addBike" element={<CreateBike />} />
-        <Route path="/updateBike" element={<UpdateBike />} />
+        <Route path="/updateBike/:bikeId" element={<UpdateBike />} />
         <Route path="/bookings/:bikeId" element={<CreateBooking />} />
         <Route path="/about" element={<About />} />
       </Routes>

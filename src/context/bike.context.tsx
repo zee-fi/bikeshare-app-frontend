@@ -52,7 +52,7 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
 
     const updateBike = async ({ bikeId, updatedBikeDetails }: { bikeId: string, updatedBikeDetails: BikeType }) => {
         try {
-            const response = await axios.put<BikeType>(`${import.meta.env.VITE_API_URL}/api/bikes/${bikeId}`, updatedBikeDetails);
+            const response = await axios.put<BikeType>(`${import.meta.env.VITE_API_URL}/api/updateBike/${bikeId}`, updatedBikeDetails);
             
             setBikes((prevBikes) => 
                 prevBikes ? prevBikes.map((bike) => 
