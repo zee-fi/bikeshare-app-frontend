@@ -24,7 +24,7 @@
   
   /* Hover effect for NavLinks */
   .nav a:hover {
-    color: #007BFF; /* Blue color on hover */
+    color: #646cff; /* Blue color on hover */
     background-color: #f0f0f0; /* Light background on hover */
     border-radius: 5px; /* Rounded corners on hover */
   }
@@ -32,6 +32,6 @@
   /* Active state for NavLinks */
   .nav .active {
     color: #fff; /* White text color when active */
-    background-color: #2a6cb3; /* Blue background when active */
+    background-color: #646cff; /* Blue background when active */
     border-radius: 5px;
   }
