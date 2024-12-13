@@ -8,6 +8,7 @@ import CreateBike from "./components/CreateBike";
 import Header from "./components/Header";
 import CreateBooking from "./components/CreateBooking";
 import About from "./pages/About";
+import UpdateBike from "./components/UpdateBike";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/bikes" element={<Bikelist />} />
         <Route path="/bikes/:bikeId" element={<Bike />} />
         <Route path="/addBike" element={<CreateBike />} />
+        <Route path="/updateBike" element={<UpdateBike />} />
         <Route path="/bookings/:bikeId" element={<CreateBooking />} />
         <Route path="/about" element={<About />} />
       </Routes>

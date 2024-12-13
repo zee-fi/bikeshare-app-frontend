@@ -82,10 +82,14 @@ export default function Bike (){
         <strong>Deposit:</strong> €{bike.deposit}
       </p>
       <p>
-        <strong>Contact Owner:</strong>
+        <strong><a href={`mailto:${bike.owner}@bikeshare-berlin.netlify.app?subject=Inquiry about ${bike.title}&body=Hello, I am interested in your bike!`}>Contact Ower: {bike.owner}</a></strong>
+      </p>
+      <p>
+        <strong>OR</strong>
       </p>
       <button className="reserve-button"><Link to={`/bookings/${bikeId}`}>Reserve Now</Link></button>
-      <button className="reserve-button" onClick={handleDelete}>Delete</button>
+      <button className="reserve-button" onClick={handleDelete}><strong>Are you the owner?</strong><br />
+      <small>Click here to delete bike</small></button>
     </div>
     )
 }

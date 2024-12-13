@@ -50,19 +50,20 @@ const BikeProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
 
-    const updateBike = async (updatedBike: BikeType) => {
+    const updateBike = async ({ bikeId, updatedBikeDetails }: { bikeId: string, updatedBikeDetails: BikeType }) => {
         try {
-            const { id: bikeId } = updatedBike;
-
-            const response = await axios.put<BikeType>(`${import.meta.env.VITE_API_URL}/api/bikes/${bikeId}`, updatedBike)
+            const response = await axios.put<BikeType>(`${import.meta.env.VITE_API_URL}/api/bikes/${bikeId}`, updatedBikeDetails);
+            
             setBikes((prevBikes) => 
                 prevBikes ? prevBikes.map((bike) => 
-                  bike.id === bikeId ? response.data : bike
-                ) : []);
+                    bike.id === bikeId ? response.data : bike
+                ) : []
+            );
         } catch (err) {
-            console.log("error updating bike info", err)
+            console.log("Error updating bike info", err);
         }
     };
+    
 
 
     const deleteBike = async (bikeIdPromise: Promise<any>) => {
